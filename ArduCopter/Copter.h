@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+
 #include <AP_HAL/AP_HAL.h>
 
 // Common dependencies
@@ -645,6 +646,12 @@ private:
     static_assert(_failsafe_priorities[ARRAY_SIZE(_failsafe_priorities) - 1] == -1,
                   "_failsafe_priorities is missing the sentinel");
 
+
+    // Insert Your Function
+
+    // helloworld.cpp
+    void helloworld();
+    void UART_Test();
 
 
     // AP_State.cpp
