@@ -75,6 +75,7 @@
 
 #include "Copter.h"
 
+
 #define FORCE_VERSION_H_INCLUDE
 #include "version.h"
 #undef FORCE_VERSION_H_INCLUDE
@@ -145,8 +146,14 @@ const AP_Scheduler::Task Copter::scheduler_tasks[] = {
     SCHED_TASK(gpsglitch_check,       10,     50),
     SCHED_TASK(landinggear_update,    10,     75),
     SCHED_TASK(lost_vehicle_check,    10,     50),
-    SCHED_TASK_CLASS(GCS,                  (GCS*)&copter._gcs,          update_receive, 400, 180),
-    SCHED_TASK_CLASS(GCS,                  (GCS*)&copter._gcs,          update_send,    400, 550),
+    // SCHED_TASK_CLASS(GCS,                  (GCS*)&copter._gcs,          update_receive, 400, 180),
+    // SCHED_TASK_CLASS(GCS,                  (GCS*)&copter._gcs,          update_send,    400, 550),
+
+    // Insert your code
+    SCHED_TASK(helloworld, 1, 10),
+    // SCHED_TASK(UART_Test, 1, 10),
+
+
 #if MOUNT == ENABLED
     SCHED_TASK_CLASS(AP_Mount,             &copter.camera_mount,        update,          50,  75),
 #endif
@@ -206,6 +213,18 @@ const AP_Scheduler::Task Copter::scheduler_tasks[] = {
 };
 
 constexpr int8_t Copter::_failsafe_priorities[7];
+
+#include <cstdio>
+
+// Insert Your Function
+// void Copter::hello_world()
+// {
+
+
+//     printf("hello_world!!!\n");
+
+// }
+
 
 void Copter::setup()
 {
